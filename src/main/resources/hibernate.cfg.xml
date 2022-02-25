@@ -1,17 +1,60 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/newbd?useSSL=false&amp;serverTimezone=UTC</property>
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+
+        <property name="connection.url">jdbc:mysql://localhost:3306/newbd</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
 
-        <property name="current_session_context_class">thread</property>
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- 'show_sql' set true to check sql statements on console else set to false -->
         <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!-- use 'create' to Create tables on application startup else use 'update'-->
+        <property name="hbm2ddl.auto">create</property>
+
+        <!-- JDBC connection pool -->
+        <property name="connection.pool_size">5</property>
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Domain Model classes to be mapped -->
+        <mapping class="com.alfat.mvc.Employee" />
 
     </session-factory>
 </hibernate-configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<?xml version='1.0' encoding='utf-8'?>-->
+<!--<!DOCTYPE hibernate-configuration PUBLIC-->
+<!--        "-//Hibernate/Hibernate Configuration DTD//EN"-->
+<!--        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">-->
+<!--<hibernate-configuration>-->
+<!--    <session-factory>-->
+<!--        <property name="connection.url">jdbc:mysql://localhost:3306/newbd?useSSL=false&amp;serverTimezone=UTC</property>-->
+<!--        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
+<!--        <property name="connection.username">root</property>-->
+<!--        <property name="connection.password">root</property>-->
+
+<!--        <property name="current_session_context_class">thread</property>-->
+<!--        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>-->
+<!--        <property name="show_sql">true</property>-->
+
+<!--    </session-factory>-->
+<!--</hibernate-configuration>-->
